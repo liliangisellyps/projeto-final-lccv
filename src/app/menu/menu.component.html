@@ -1,33 +1,31 @@
 <nav id="sidebarMenu" class="col-md-3 d-md-block sidebar collapse">
-    <div class="insideNav py-2 text-uppercase fw-bold">
-      <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="#">
-            <span data-feather="home"></span>
-            Home
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" aria-current="page"
-            routerLink="/funcionarios">
-            <span data-feather="home"></span>
-            Patrimônio
-          </a>
-        </li>
-          <div class="accordion accordion-flush" id="accordionFlushExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="flush-headingOne">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                  Accordion Item #1
-                </button>
-              </h2>
-              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body bg-dark">This is the first item's accordion body.</div>
-              </div>
-            </div>
-          </div>
-        <li>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <div class="insideNav py-0 text-uppercase fw-bold">
+    <ul class="nav flex-column"> 
+      <li class="nav-item">
+        <a class="nav-link active text-white" aria-current="page" routerLink="/bens" routerLinkActive="active">
+          <span data-feather="home"></span>
+          Patrimônio
+        </a>
+      </li>
+      <hr class="pa-0 my-0"/>
+      <li class="nav-item">
+        <accordion [isAnimated]="true">
+          <accordion-group #group>
+            <span accordion-heading>
+              Bens ▼ 
+              <i class="bi bi-caret-down"></i>
+            </span>
+            <a class="list-group-item list-group-item-action" routerLink="/cadastrar" routerLinkActive="active">
+              Cadastrar
+            </a>
+            <a class="list-group-item list-group-item-action" routerLink="/listar" routerLinkActive="active">
+              Listar
+            </a>
+          </accordion-group>
+        </accordion>
+      </li>   
+      <hr class="pa-0 my-0"/>        
+    </ul>
+  </div>
+</nav>
+ 

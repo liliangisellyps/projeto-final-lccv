@@ -3,3 +3,48 @@
     background-color: #042955;
     height: 89.7vh;
 }
+
+.nav-item {
+    padding: 4px;
+}
+accordion-group {
+    ::ng-deep {
+      .card {
+          border-radius: 0;
+          border: none;
+      }
+      .card-header {
+          border-bottom: none;
+      }
+      div {
+        &>div.panel-heading.card-header.panel-enabled {
+          background-color: #042955; // change the background of every accordion heading
+          border-radius: 0;
+          .btn-link {
+              border: none;
+            color: white; // change the accordion heading buttons style
+            text-decoration: none;
+            padding-left: 0;
+            font-weight: bold;
+          }
+        }
+  
+        &>div.panel-collapse.collapse.in.show>div {
+          background-color: hsla(210, 10%, 83%, 0.10); // change the expanded content style
+          color: black;
+        }
+      }
+    }
+}
+
+.accordion-toggle[aria-expanded="true"]:before {
+    content: "f107";
+    font: normal normal normal 14px/1 FontAwesome;
+    }
+    
+    .accordion-toggle[aria-expanded="false"]:before {
+    content: 'f106';
+    font: normal normal normal 14px/1 FontAwesome;
+    }
+    
+    
