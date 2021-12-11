@@ -1,1 +1,51 @@
-<p>register works!</p>
+<form class="row g-3">
+    <div class="col-md-6 col-lg-4">
+      <label for="inputNumber" class="form-label">Número</label>
+      <input type="number" class="form-control" id="inputNumber" disabled>
+    </div>
+    <div class="col-md-6 col-lg-4">
+      <label for="inputProviders" class="form-label">Fornecedor (razão social)</label>
+      <input class="form-control" list="providersOptions" id="inputProviders" placeholder="Digite um termo...">
+      <datalist id="providersOptions">
+        <option value="Fornecedor 1">
+        <option value="Fornecedor 2">
+        <option value="Fornecedor 3">
+        <option value="Fornecedor 4">
+        <option value="Fornecedor 5">
+      </datalist>
+    </div>
+    <div class="col-md-6 col-lg-4">
+      <label for="inputInvoice" class="form-label">Nota fiscal</label>
+      <input class="form-control" list="invoiceOptions" id="inputInvoice" placeholder="Digite um termo...">
+      <datalist id="invoiceOptions">
+        <option value="Nota fiscal 1">
+        <option value="Nota fiscal 2">
+        <option value="Nota fiscal 3">
+        <option value="Nota fiscal 4">
+        <option value="Nota fiscal 5">
+      </datalist>
+    </div>
+    <div class="col-md-6 col-lg-4">
+      <label for="inputProviders" class="form-label">Item da nota fiscal</label>
+      <input class="form-control" list="invoiceItemsOptions" id="inputProviders" placeholder="Digite um termo...">
+      <datalist id="invoiceItemsOptions">
+        <option value="Item 1">
+        <option value="Item 2">
+        <option value="Item 3">
+        <option value="Item 4">
+        <option value="Item 5">
+      </datalist>
+    </div>
+    <div class="col-md-6 col-lg-4">
+        <label for="inputAmount" class="form-label">Quantidade Vinculada</label>
+        <input type="number" class="form-control" id="inputAmount" disabled>
+    </div>
+    <div class="col-md-6 col-lg-4">
+        <label for="inputAvailable" class="form-label">Quantidade Disponível</label>
+        <input type="number" class="form-control" id="inputAvailable" disabled>
+    </div>
+    <div class="d-grid gap-1 d-md-flex justify-content-md-end" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary">Voltar</button>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </div>
+</form>

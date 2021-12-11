@@ -1,3 +1,11 @@
-<app-header></app-header>
-<app-menu></app-menu>
-
+<div>
+    <app-header></app-header>
+    <div class="row mx-auto">
+        <div class="col-md-4 col-lg-3 px-0 d-md-inline">
+            <app-menu></app-menu>
+        </div>
+        <div class="col-md-8 col-lg-8 mx-auto px-0 d-md-block">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

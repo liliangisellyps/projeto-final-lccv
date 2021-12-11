@@ -5,7 +5,7 @@
 }
 
 .nav-item {
-    padding: 4px;
+    padding: 6px;
 }
 accordion-group {
     ::ng-deep {
@@ -36,15 +36,3 @@ accordion-group {
       }
     }
 }
-
-.accordion-toggle[aria-expanded="true"]:before {
-    content: "f107";
-    font: normal normal normal 14px/1 FontAwesome;
-    }
-    
-    .accordion-toggle[aria-expanded="false"]:before {
-    content: 'f106';
-    font: normal normal normal 14px/1 FontAwesome;
-    }
-    
-    
