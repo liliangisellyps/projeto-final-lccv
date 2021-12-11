@@ -5,7 +5,7 @@ import { RegisterComponent } from './modules/belogings/components/register/regis
 import { ListComponent } from './modules/belogings/components/list/list.component';
 
 const routes: Routes = [
-  { path: 'bens', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'cadastrar', component: RegisterComponent },
   { path: 'listar', component: ListComponent },
 ];

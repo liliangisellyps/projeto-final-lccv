@@ -1,1 +1,148 @@
-<p>list works!</p>
+<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+    <ol class="breadcrumb bg-light mt-4 ps-3 align-items-center" style="height: 40px;">
+    <li class="breadcrumb-item"><a routerLink="/listar" routerLinkActive="active">Início</a></li>
+    <li class="breadcrumb-item"><a routerLink="/listar" routerLinkActive="active">Bens</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Listar</li>
+    </ol>
+</nav>
+
+<div class="card mt-2">
+    <div class="card-header d-flex justify-content-between">
+      Bens
+      <!-- add modal -->
+      <div>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary pt-0" (click)="openModal(template)"><span class="align-middle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+        </svg></span></button>
+        <!-- // Button trigger modal -->
+
+        <!-- Modal -->
+        <ng-template #template>
+          <div class="modal-header">
+            <h4 class="modal-title pull-left">Adicionar Bem</h4>
+            <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+              <span aria-hidden="true" class="visually-hidden">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="row">
+                <div class="col-4 mb-3">
+                  <label for="inputModalAmount" class="form-label">Quantidade</label>
+                  <input type="number" class="form-control" id="inputModalAmount">
+                </div>
+                <div class="col-4">
+                  <label for="inputModalBrand" class="form-label">Marca</label>
+                  <input type="text" class="form-control" id="inputModalBrand">
+                </div>
+                <div class="col-4">
+                  <label for="inputModalNumber" class="form-label">Valor Unitário</label>
+                  <input disabled type="number" class="form-control" id="inputModalNumber">
+                </div>
+                <div class="col-xs-12 col-12 col-md-6 form-group">
+                      <label for="inputModalStartDate" class="form-label">Início da garantia</label>
+                      <input
+                      class="form-control"
+                      #datepickerYMD="bsDatepicker"
+                      bsDatepicker
+                      formControlName="dateYMD"
+                      [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
+                      placeholder="aaaa-mm-dd"
+                      id="inputModalStartDate">
+                </div>
+                <div class="col-xs-12 col-12 col-md-6 form-group mb-3">
+                      <label for="inputModalEndDate" class="form-label">Término da garantia</label>
+                      <input
+                      class="form-control"
+                      #datepickerYMD="bsDatepicker"
+                      bsDatepicker
+                      formControlName="dateYMD"
+                      [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
+                      placeholder="aaaa-mm-dd"
+                      id="inputModalEndDate">
+                </div>
+                <div class="mt-2">
+                  <textarea class="form-control" id="inputModalObservations" rows="3" placeholder="Escreva aqui..."></textarea>
+              </div>
+              </div>
+              
+            </form>
+            <hr/>
+            <div
+            class="d-grid gap-1 py-2 pe-2 d-md-flex justify-content-md-end"
+            role="group"
+            aria-label="Basic example"
+            >
+            <button type="button" class="btn btn-secondary py-1">Fechar</button>
+            <button type="submit" class="btn btn-primary">Adicionar</button>
+            </div>
+          </div>
+        </ng-template>
+        <!-- // Modal -->
+      </div>
+    </div>
+    <!-- table -->
+    <div class="card-body">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Tombamento</th>
+                <th scope="col">Produto</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Itens</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>202112120116</td>
+                <td>Produto 1</td>
+                <td>R$ 00,00</td>
+                <td>
+                  <button type="button" class="btn btn-primary pt-0" (click)="openModal(visualizar)"><span class="align-middle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                  </svg></span></button>
+                  <ng-template #visualizar>
+                    <div class="modal-header">
+                      <h4 class="modal-title pull-left">Visualizar Bem</h4>
+                      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+                        <span aria-hidden="true" class="visually-hidden">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <!-- Body of the modal -->
+                      <p class="fw-bold mb-0">Estado</p>
+                      <p >Bom</p>
+                      <p class="fw-bold mb-0">Situação de uso</p>
+                      <p>Em uso</p>
+                      <p class="fw-bold mb-0">Marca</p>
+                      <p>Marca 1</p>
+
+                      <!-- Buttons -->
+                      <hr/>
+                      <div
+                      class="d-grid gap-1 py-2 pe-2 d-md-flex justify-content-md-end"
+                      role="group"
+                      aria-label="Basic example"
+                      >
+                      <button type="button" class="btn btn-secondary py-1">Fechar</button>
+                      </div>
+                    </div>
+                  </ng-template>
+                </td>
+              </tr>                          
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Total</th>
+                    <th></th>
+                    <th></th>
+                    <th>R$ 00,00</th>
+                    <th></th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+  </div>
