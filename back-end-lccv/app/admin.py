@@ -1,12 +1,14 @@
 from django.contrib import admin
 
 from . import models
+from . import actions
 
 # Register your models here.
 class FornecedoresForm(admin.ModelAdmin):
     readonly_fields = ['id_user_cad', 'id_user_alt']
     search_fields = ['razao_social', 'cnpj', 'email', 'telefone']
     # list_filter
+    actions = [actions.atualiza_fornecedores]
     
     def save_model(self, request, obj, form, change):
         if change:
