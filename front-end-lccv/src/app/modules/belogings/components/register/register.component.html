@@ -69,11 +69,11 @@
                     </div>
                     <div class="col-md-6 col-lg-4">
                     <label for="inputAmount" class="form-label">Quantidade Vinculada</label>
-                    <input type="number" class="form-control" id="inputAmount" disabled />
+                    <input type="number" class="form-control" value="0" aria-label="0" disabled readonly id="inputAmount" disabled />
                     </div>
                     <div class="col-md-6 col-lg-4">
                     <label for="inputAvailable" class="form-label">Quantidade Disponível</label>
-                    <input type="number" class="form-control" id="inputAvailable" disabled />
+                    <input type="number" class="form-control" value="100" aria-label="100" disabled readonly id="inputAvailable" disabled />
                     </div>
                    
                 </form>
@@ -90,7 +90,7 @@
                     </svg></span></button>
                     <!-- // Button trigger modal -->
 
-                    <!-- Modal -->
+                    <!-- Modal add bem-->
                     <ng-template #template>
                       <div class="modal-header">
                         <h4 class="modal-title pull-left">Adicionar Bem</h4>
@@ -111,7 +111,7 @@
                             </div>
                             <div class="col-4">
                               <label for="inputModalNumber" class="form-label">Valor Unitário</label>
-                              <input disabled type="number" class="form-control" id="inputModalNumber">
+                              <input type="number" class="form-control" value="0" aria-label="0" disabled readonly id="inputModalNumber" disabled />
                             </div>
                             <div class="col-xs-12 col-12 col-md-6 form-group">
                                   <label for="inputModalStartDate" class="form-label">Início da garantia</label>
@@ -121,6 +121,7 @@
                                   bsDatepicker
                                   formControlName="dateYMD"
                                   [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
+                                  [bsConfig]="{containerClass:'theme-blue'}"
                                   placeholder="aaaa-mm-dd"
                                   id="inputModalStartDate">
                             </div>
@@ -132,6 +133,7 @@
                                   bsDatepicker
                                   formControlName="dateYMD"
                                   [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
+                                  [bsConfig]="{containerClass:'theme-blue'}"
                                   placeholder="aaaa-mm-dd"
                                   id="inputModalEndDate">
                             </div>
@@ -147,7 +149,7 @@
                         role="group"
                         aria-label="Basic example"
                         >
-                        <button type="button" class="btn btn-secondary py-1">Fechar</button>
+                        <button type="button" class="btn btn-secondary py-1" (click)="modalRef?.hide()"> Fechar</button>
                         <button type="submit" class="btn btn-primary">Adicionar</button>
                         </div>
                       </div>
@@ -173,6 +175,8 @@
                             <td>202112120116</td>
                             <td>Produto 1</td>
                             <td>R$ 00,00</td>
+
+                            <!-- Modal de visualizar bem -->
                             <td>
                               <button type="button" class="btn btn-primary pt-0" (click)="openModal(visualizar)"><span class="align-middle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
@@ -200,12 +204,13 @@
                                   role="group"
                                   aria-label="Basic example"
                                   >
-                                  <button type="button" class="btn btn-secondary py-1">Fechar</button>
+                                  <button type="button" class="btn btn-secondary py-1" (click)="modalRef?.hide()">Fechar</button>
                                   </div>
                                 </div>
                               </ng-template>
                             </td>
-                          </tr>                          
+                            <!-- // Modal de visualizar bem -->
+                          </tr>         
                         </tbody>
                         <tfoot>
                             <tr>
@@ -232,7 +237,7 @@
       role="group"
       aria-label="Basic example"
       >
-      <button type="button" class="btn btn-secondary py-1">Voltar</button>
+      <button type="button" class="btn btn-secondary py-1" (click)="backClicked()">Voltar</button>
       <button type="submit" class="btn btn-primary">Enviar</button>
       </div>
   </div>

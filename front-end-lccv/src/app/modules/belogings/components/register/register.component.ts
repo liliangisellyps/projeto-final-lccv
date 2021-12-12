@@ -1,4 +1,5 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
+import {Location} from '@angular/common';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
@@ -9,13 +10,18 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 export class RegisterComponent implements OnInit {
 
+  constructor(private modalService: BsModalService, private _location: Location) {}
   ngOnInit(): void {
   }
 
   modalRef?: BsModalRef;
-  constructor(private modalService: BsModalService) {}
  
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
+
+  backClicked() {
+    this._location.back();
+  }
+  
 }
